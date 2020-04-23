@@ -9,3 +9,10 @@ form.login {
   bottom: 0; 
   width: 100%;  
 }
+#map {
+  height: 100%;
+}
+.mapdiv {
+  height: 0x;
+  width: 0px;
+}

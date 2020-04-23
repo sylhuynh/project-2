@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanderful - Wishlist</title>
+
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="../uikit/css/uikit.min.css" />
+
+  <!-- Custom CSS -->
+  <link href="stylesheets/style.css" rel="stylesheet">
+
+  <!-- UIkit JS -->
+  <script src="../uikit/js/uikit.min.js"></script>
+  <script src="../uikit/js/uikit-icons.min.js"></script>
+
+  <!-- Google Maps API -->
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW17N2QfmsaG3vLZxkmfeOolBEIKKVM0U&libraries=places"></script>
+</head>
+
+<body>
+  <div class="hero">
+    <!-- Overlay Image -->
+    <div class="uk-inline">
+      <img src="../images/wanderful-hero.jpg" alt="lake and forest">
+      <div class="uk-overlay uk-position-center">
+
+        <!-- Title -->
+        <header class="uk-text-center uk-heading-small uk-text-bold uk-light">Your Wishlist
+        </header>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="uk-container uk-margin-medium uk-margin-large-bottom">
+    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+      <div class="uk-card-media-left uk-cover-container">
+        <img src="../images/wanderful-hero.jpg" alt="" uk-cover>
+        <canvas width="600" height="400"></canvas>
+      </div>
+      <div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title">City, Country</h3>
+          <button class="uk-button uk-button-primary">LEARN MORE</button>
+          <br>
+          <div class="uk-card-footer">
+            <ul class="uk-iconnav">
+              <a href="#" class="uk-button uk-button-small uk-link-reset">
+                <span class="uk-icon uk-margin-small-right" uk-icon="icon: location" id="san-diego-visited"></span>
+                Add visited
+              </a>
+              <a href="#" class="uk-button uk-button-small uk-link-reset">
+                <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart" id="san-diego-wishlist"></span>
+                Add wishlist
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Nav -->
+  <footer class="custom-footer">
+    <nav class="uk-navbar-container">
+      <div class="uk-navbar-center uk-flex-center">
+        <ul class="uk-navbar-nav">
+          <li class="active"> <a href="home.html"> <span class="uk-icon uk-margin-small-right"
+                uk-icon="icon: search"></span>
+              Wander</a></li>
+          <li> <a href="wishlist.html"> <span class="uk-icon uk-margin-small-right  uk-text-primary"
+                uk-icon="icon: heart"></span><span class="uk-text-primary">Wishlist</span></a></li>
+          <li> <a href="visited.html"> <span class="uk-icon uk-margin-small-right"
+                uk-icon="icon: location"></span>Visited</a></li>
+        </ul>
+      </div>
+    </nav>
+  </footer>
+</body>
+
+</html>
