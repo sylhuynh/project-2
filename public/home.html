@@ -25,13 +25,13 @@
   <div class="hero">
     <!-- Overlay Image -->
     <div class="uk-inline">
-      <img src="../images/wanderful-hero.jpg" alt="lake and forest">
+      <img src="./images/wanderful-hero.jpg" alt="lake and forest">
       <div class="uk-overlay-default uk-position-center">
 
         <!-- Search Bar -->
         <form class="uk-search uk-search-default">
           <span uk-search-icon></span>
-          <input class="uk-search-input" type="search" placeholder="Where to next?">
+          <input id= "search" class="uk-search-input" type="search" placeholder="Where to next?">
         </form>
 
       </div>
@@ -46,7 +46,7 @@
 
     <!-- Map with markers -->
     <div class="uk-container-xsmall uk-inline uk-dark uk-flex">
-      <img src="../images/world-map.png" alt="world map">
+      <img src="./images/world-map.png" alt="world map">
 
       <!-- San Diego Marker -->
       <a class="uk-position-absolute uk-transform-center" style="left: 70%; top: 45%" uk-marker id="san-diego-marker"
@@ -62,11 +62,11 @@
         <!-- San Diego Wishlist/Visited-->
         <div class="uk-card-footer">
           <ul class="uk-iconnav">
-            <a href="#" class="uk-button uk-button-small uk-link-reset">
+            <a class="uk-button uk-button-small uk-link-reset">
               <span class="uk-icon uk-margin-small-right" uk-icon="icon: location" id="san-diego-visited"></span>
               Add visited
             </a>
-            <a href="#" class="uk-button uk-button-small uk-link-reset">
+            <a  class="uk-button uk-button-small uk-link-reset">
               <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart" id="san-diego-wishlist"></span>
               Add wishlist
             </a>
@@ -97,7 +97,10 @@
       </div>
     </nav>
   </footer>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANGfz6tIVubimQkl95WE1Po7V1VvCBR-E&callback=initMap"
+  async defer></script>
+  <script src="js/api.js"></script>
+  
 </body>
 
 </html>
