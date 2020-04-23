@@ -30,12 +30,12 @@ module.exports = function(sequelize, DataTypes) {
     // }
   );
 
-  //   Wishlist.associate = function(models) {
-  //     Wishlist.belongsTo(models.Visited, {
-  //       foreignKey: {
-  //         allowNull: false
-  //       }
-  //     });
-  //   };
+  Wishlist.associate = function(models) {
+    Wishlist.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Wishlist;
 };
