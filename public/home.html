@@ -39,12 +39,34 @@
     </div>
   </div>
 
-  <div class="uk-container uk-margin-medium uk-margin-large-bottom ">
+  <div class="uk-container uk-margin-medium uk-margin-large-bottom uk-card-small">
     <header class="uk-text-center uk-heading-small uk-text-lighter	">EXPLORE POPULAR DESTINATIONS
     </header>
     <div class="uk-container-xsmall uk-inline uk-dark uk-flex">
       <img src="./images/world-map.png" alt="world map">
-      <a class="uk-position-absolute uk-transform-center" style="left: 70%; top: 45%" href="#" uk-marker id = "san-diego"></a>
+      <a class="uk-position-absolute uk-transform-center" style="left: 70%; top: 45%" uk-marker id="san-diego-marker"
+        uk-toggle="target: #san-diego-info"></a>
+
+      <!-- San Diego Card -->
+      <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-position-absolute" id="san-diego-info"
+        style="left: 71%; top: 45%" hidden>
+
+        <h4 class="uk-card-title">San Diego</h4>
+        <button class="uk-button uk-button-default">LEARN MORE</button>
+
+        <div class="uk-card-footer">
+          <ul class="uk-iconnav">
+            <a href="#" class="uk-button uk-button-small uk-link-reset">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: location"></span>
+              Add visited
+            </a>
+            <a href="#" class="uk-button uk-button-small uk-link-reset">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart"></span>
+              Add wishlist
+            </a>
+          </ul>
+        </div>
+      </div>
     </div>
 
 
