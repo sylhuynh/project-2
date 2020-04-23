@@ -1,61 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wanderful - Wander</title>
-
   <!-- UIkit CSS -->
   <link rel="stylesheet" href="../uikit/css/uikit.min.css" />
-
   <!-- Custom CSS -->
   <link href="../stylesheets/style.css" rel="stylesheet">
-
+  <!-- JQUERY -->
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
   <!-- UIkit JS -->
   <script src="../uikit/js/uikit.min.js"></script>
   <script src="../uikit/js/uikit-icons.min.js"></script>
-
+  <!-- Google Maps API -->
 </head>
-
 <body>
   <div class="hero">
     <!-- Overlay Image -->
     <div class="uk-inline">
       <img src="../images/wanderful-hero.jpg" alt="lake and forest">
       <div class="uk-overlay-default uk-position-center">
-
         <!-- Search Bar -->
         <form class="uk-search uk-search-default">
           <span uk-search-icon></span>
           <input class="uk-search-input" type="search" placeholder="Where to next?">
         </form>
-
       </div>
     </div>
   </div>
-
   <!-- Explore Pop Destinations Section -->
   <div class="uk-container uk-margin-medium uk-margin-large-bottom">
-
     <header class="uk-text-center uk-heading-small uk-text-lighter	">EXPLORE POPULAR DESTINATIONS
     </header>
-
     <!-- Map with markers -->
     <div class="uk-container-xsmall uk-inline uk-dark uk-flex">
       <img src="../images/world-map.png" alt="world map">
-
       <!-- San Diego Marker -->
       <a class="uk-position-absolute uk-transform-center" style="left: 70%; top: 45%" uk-marker id="san-diego-marker"
         uk-toggle="target: #san-diego-info"></a>
-
       <!-- San Diego Card -->
       <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-position-absolute" id="san-diego-info"
         style="left: 71%; top: 45%" hidden>
-
         <h4 class="uk-card-title">San Diego</h4>
         <button class="uk-button uk-button-default">LEARN MORE</button>
-
         <!-- San Diego Wishlist/Visited-->
         <div class="uk-card-footer">
           <ul class="uk-iconnav">
@@ -69,16 +58,11 @@
             </a>
           </ul>
         </div>
-
       </div>
-
-
     </div>
-
-
   </div>
   <div class="mapdiv">
-  <div id="map"></div>
+    <div id="map"></div>
   </div>
   <!-- Footer Nav -->
   <footer class="custom-footer">
@@ -96,7 +80,15 @@
       </div>
     </nav>
   </footer>
-
+  <script src="../js/api.js"></script>
+  <script>
+  var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8
+      });
+    }
+    </script>
 </body>
-
 </html>
