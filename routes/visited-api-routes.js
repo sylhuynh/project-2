@@ -1,0 +1,43 @@
+const db = require("../models");
+
+// Routes
+module.exports = app => {
+  app.get("/api/visited", (req, res) => {
+    const query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
+    }
+
+    db.Visited.findAll({
+      where: query
+    }).then(dbVisited => {
+      res.json(dbVisited);
+    });
+  });
+
+  app.post("/api/visited", (req, res) => {
+    db.Visited.create(req.body).then(dbVisited => {
+      res.json(dbVisited);
+    });
+  });
+
+  app.delete("/api/visited/:id", (req, res) => {
+    db.Visited.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbVisited => {
+      res.json(dbVisited);
+    });
+  });
+
+  app.put("/api/visited", (req, res) => {
+    db.Visited.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(dbVisited => {
+      res.json(dbVisited);
+    });
+  });
+};
