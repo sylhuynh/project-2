@@ -2,7 +2,7 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-.tm-footer { 
+.custom-footer { 
   /* Fixed footer */ 
   position: fixed; 
   left: 0; 
