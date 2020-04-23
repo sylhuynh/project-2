@@ -30,5 +30,13 @@ module.exports = function(sequelize, DataTypes) {
     // }
   );
 
+  Visited.associate = function(models) {
+    Visited.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Visited;
 };
