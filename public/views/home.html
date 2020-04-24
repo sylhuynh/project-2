@@ -8,12 +8,15 @@
   <link rel="stylesheet" href="../uikit/css/uikit.min.css" />
   <!-- Custom CSS -->
   <link href="../stylesheets/style.css" rel="stylesheet">
+
   <!-- JQUERY -->
   <script src="https://code.jquery.com/jquery-3.5.0.min.js"
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
   <!-- UIkit JS -->
   <script src="../uikit/js/uikit.min.js"></script>
   <script src="../uikit/js/uikit-icons.min.js"></script>
+
   <!-- Google Maps API -->
 </head>
 <body>
@@ -31,7 +34,9 @@
       </div>
     </div>
   </div>
+
   <div class="photo">
+
   </div>
   <!-- Explore Pop Destinations Section -->
   <div class="uk-container uk-margin-medium uk-margin-large-bottom">
@@ -86,54 +91,5 @@
     </nav>
   </footer>
   <script src="../js/api.js"></script>
-  <script>
-    var map;
-    $("#search").on("click", function (event) {
-      // preventing default behavior
-      event.preventDefault();
-      // store the user's search value as a variable
-      var userInput = $(".uk-search-input")
-        .val()
-        .trim();
-      console.log(userInput)
-      findDestination(userInput);
-    });
-    function initMap() {
-      var sydney = new google.maps.LatLng(-33.867, 151.195);
-      map = new google.maps.Map(
-        document.getElementById("map"), { center: sydney, zoom: 15 });
-    }
-    function findDestination(search) {
-      var request = {
-        query: search,
-        fields: ['name', 'geometry', 'place_id'],
-      };
-      var service = new google.maps.places.PlacesService(map);
-      service.findPlaceFromQuery(request, function (results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          getSearchDetails(results[0]);
-        }
-      });
-    }
-    function getSearchDetails(searchResults) {
-      console.log(searchResults)
-      const searchPlaceID = searchResults.place_id
-      var request = {
-        placeId: searchPlaceID,
-        fields: ['name', 'formatted_address', 'place_id', 'geometry', 'photos']
-      };
-      service = new google.maps.places.PlacesService(map);
-      service.getDetails(request, function (place, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          var photos = place.photos 
-          if (!photos) {
-              return;
-            }
-            var photoURL =  photos[0].getUrl({ maxWidth: 300, maxHeight: 300 });
-            // functionthatpassethesearguments(place, photoURL)
-        }
-      });
-    }
-  </script>
 </body>
 </html>
