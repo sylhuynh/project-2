@@ -69,25 +69,42 @@ function getSearchDetails(searchResults) {
       }
       var photoURL = photos[0].getUrl({ maxWidth: 500, maxHeight: 500 });
       $("#destination-image").html($("<img>").attr("src", photoURL));
-      $("#city").text(place.formatted_address);
-      console.log(place);
-      console.log(photoURL);
+      $("#city").text(place.name);
+      addVisited(place.name);
+      addWishlist(place.name);
     }
   });
 }
+function addVisited(destination) {
+  $(".add-visited").on("click", function(event) {
+    event.preventDefault();
+    const newVisited = {
+      destination: destination,
+      visitedStatus: true
+    };
+    console.log(newVisited);
 
-$(".add-visited").on("click", function(event) {
-  event.preventDefault();
-  const newVisited = {
-    destination: "san diego",
-    visitedStatus: true
-  };
-  console.log(newVisited);
-
-  $.post("/api/visited", newVisited).then(function(data) {
-    console.log(data);
-    alert("adding new city to visited");
+    $.post("/api/visited", newVisited).then(function(data) {
+      console.log(data);
+      alert("adding new city to visited");
+    });
   });
-});
+}
+
+function addWishlist(destination) {
+  $(".add-wishlist").on("click", function(event) {
+    event.preventDefault();
+    const newWishlist = {
+      destination: destination,
+      wishlistStatus: true
+    };
+    console.log(newWishlist);
+
+    $.post("/api/wishlist", newWishlist).then(function(data) {
+      console.log(data);
+      alert("adding new city to wishlist");
+    });
+  });
+}
 
 $("#search").hide();
