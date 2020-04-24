@@ -28,10 +28,10 @@ $(document).ready(function() {
       email: email,
       password: password
     })
+      // eslint-disable-next-line no-unused-vars
       .then(function(data) {
         window.location.replace("/");
         // If there's an error, handle it by throwing up a bootstrap alert
-        return data;
       })
       .catch(handleLoginErr);
   }
