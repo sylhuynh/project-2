@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  //associating the wishlist table to the user
+  // associating the wishlist table to the user
   User.associate = function(models) {
     models.User.hasMany(models.Wishlist, {
       onDelete: "CASCADE",

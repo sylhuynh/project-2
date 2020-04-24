@@ -41,4 +41,5 @@ module.exports = app => {
     });
   });
 };
-//test
+
+//tesconsole.log(db.Wishlist)

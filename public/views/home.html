@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wanderful - Wander</title>
-
   <!-- UIkit CSS -->
   <link rel="stylesheet" href="../uikit/css/uikit.min.css" />
-
   <!-- Custom CSS -->
   <link href="../stylesheets/style.css" rel="stylesheet">
 
@@ -22,21 +19,18 @@
 
   <!-- Google Maps API -->
 </head>
-
 <body>
   <div class="hero">
     <!-- Overlay Image -->
     <div class="uk-inline">
       <img src="../images/wanderful-hero.jpg" alt="lake and forest" id = "hero-image">
       <div class="uk-overlay-default uk-position-center">
-
         <!-- Search Bar -->
         <form class="uk-search uk-search-default">
           <span uk-search-icon></span>
           <input class="uk-search-input" type="search" placeholder="Where to next?">
           <button id="search" type="submit">Search</button>
         </form>
-
       </div>
     </div>
   </div>
@@ -46,24 +40,19 @@
   </div>
   <!-- Explore Pop Destinations Section -->
   <div class="uk-container uk-margin-medium uk-margin-large-bottom">
-
     <header class="uk-text-center uk-heading-small uk-text-lighter	">EXPLORE POPULAR DESTINATIONS
     </header>
     <!-- Map with markers -->
     <div class="uk-container-xsmall uk-inline uk-dark uk-flex">
       <img src="../images/world-map.png" alt="world map">
-
       <!-- San Diego Marker -->
       <a class="uk-position-absolute uk-transform-center" style="left: 70%; top: 45%" uk-marker id="san-diego-marker"
         uk-toggle="target: #san-diego-info"></a>
-
       <!-- San Diego Card -->
       <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-position-absolute" id="san-diego-info"
         style="left: 71%; top: 45%" hidden>
-
         <h4 class="uk-card-title">San Diego</h4>
         <button class="uk-button uk-button-default">LEARN MORE</button>
-
         <!-- San Diego Wishlist/Visited-->
         <div class="uk-card-footer">
           <ul class="uk-iconnav">
@@ -77,13 +66,8 @@
             </a>
           </ul>
         </div>
-
       </div>
-
-
     </div>
-
-
   </div>
   <div class="uk-container">
     <div class="mapdiv">
@@ -107,64 +91,5 @@
     </nav>
   </footer>
   <script src="../js/api.js"></script>
-  <script src="../js/destination.js"></script>
-  <script>
-    var map;
-    $("#search").on("click", function (event) {
-      // preventing default behavior
-      event.preventDefault();
-      // store the user's search value as a variable
-      var userInput = $(".uk-search-input")
-        .val()
-        .trim();
-      findDestination(userInput);
-    });
-
-    function initMap() {
-
-      var sydney = new google.maps.LatLng(-33.867, 151.195);
-
-      map = new google.maps.Map(
-        document.getElementById("map"), { center: sydney, zoom: 15 });
-    }
-
-    function findDestination(search) {
-      var request = {
-        query: search,
-        fields: ['name', 'geometry', 'place_id'],
-      };
-
-      var service = new google.maps.places.PlacesService(map);
-
-      service.findPlaceFromQuery(request, function (results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          getSearchDetails(results[0]);
-        }
-      });
-    }
-
-    function getSearchDetails(searchResults) {
-      console.log(searchResults)
-      const searchPlaceID = searchResults.place_id
-      var request = {
-        placeId: searchPlaceID,
-        fields: ['name', 'formatted_address', 'place_id', 'geometry', 'photos']
-      };
-
-      service = new google.maps.places.PlacesService(map);
-      service.getDetails(request, function (place, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          var photos = place.photos;
-            if (!photos) {
-              return;
-            }
-            var photoURL =  photos[0].getUrl({ maxWidth: 300, maxHeight: 300 });
-            pass(place, photoURL)
-        }
-      });
-    }
-  </script>
-
 </body>
-
 </html>
