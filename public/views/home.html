@@ -141,7 +141,29 @@
           </ul>
         </div>
       </div>
-
+      <!-- Toronto Marker -->
+      <a class="uk-position-absolute uk-transform-center" style="left: 82%; top: 38%" uk-marker id="toronto-marker"
+        uk-toggle="target: #toronto-info"></a>
+      <!-- Toronto Card -->
+      <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-position-absolute" id="toronto-info"
+        style="left: 83%; top: 38%" hidden>
+        <h4 class="uk-card-title">Toronto</h4>
+        <button class="uk-button uk-button-default learn-more" href="#modal-full" uk-toggle data-query="toronto">LEARN
+          MORE</button>
+        <!-- Toronto Wishlist/Visited-->
+        <div class="uk-card-footer">
+          <ul class="uk-iconnav">
+            <a class="uk-button uk-button-small uk-link-reset">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: location"></span>
+              Add visited
+            </a>
+            <a class="uk-button uk-button-small uk-link-reset">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart"></span>
+              Add wishlist
+            </a>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
