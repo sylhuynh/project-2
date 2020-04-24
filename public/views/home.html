@@ -26,6 +26,7 @@
         <form class="uk-search uk-search-default">
           <span uk-search-icon></span>
           <input class="uk-search-input" type="search" placeholder="Where to next?">
+          <button id="search" type="submit">Search</button>
         </form>
       </div>
     </div>
@@ -61,8 +62,10 @@
       </div>
     </div>
   </div>
-  <div class="mapdiv">
-    <div id="map"></div>
+  <div class="uk-container">
+    <div class="mapdiv">
+      <div id="map"></div>
+    </div>
   </div>
   <!-- Footer Nav -->
   <footer class="custom-footer">
@@ -82,13 +85,49 @@
   </footer>
   <script src="../js/api.js"></script>
   <script>
-  var map;
+    var map;
+    $("#search").on("click", function (event) {
+      // preventing default behavior
+      event.preventDefault();
+      // store the user's search value as a variable
+      var userInput = $(".uk-search-input")
+        .val()
+        .trim();
+      console.log(userInput)
+      findDestination(userInput);
+    });
     function initMap() {
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
+      var sydney = new google.maps.LatLng(-33.867, 151.195);
+      map = new google.maps.Map(
+        document.getElementById("map"), { center: sydney, zoom: 15 });
+    }
+    function findDestination(search) {
+      var request = {
+        query: search,
+        fields: ['name', 'geometry', 'place_id'],
+      };
+      var service = new google.maps.places.PlacesService(map);
+      service.findPlaceFromQuery(request, function (results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          getSearchDetails(results[0]);
+        }
       });
     }
-    </script>
+    function getSearchDetails(searchResults) {
+      console.log(searchResults)
+      const searchPlaceID = searchResults.place_id
+      var request = {
+        placeId: searchPlaceID,
+        fields: ['name', 'rating', 'formatted_phone_number', 'geometry']
+      };
+      service = new google.maps.places.PlacesService(map);
+      service.getDetails(request, callback);
+      function callback(place, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          createMarker(place);
+        }
+      }
+    }
+  </script>
 </body>
 </html>
