@@ -89,3 +89,5 @@ $(".add-visited").on("click", function(event) {
     alert("adding new city to visited");
   });
 });
+
+$("#search").hide();
