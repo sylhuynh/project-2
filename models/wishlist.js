@@ -2,16 +2,16 @@ module.exports = function(sequelize, DataTypes) {
   const Wishlist = sequelize.define(
     "Wishlist",
     {
-      cityName: {
+      destination: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [1]
         }
       },
-      countryName: {
+      address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
           len: [1]
         }
@@ -30,12 +30,12 @@ module.exports = function(sequelize, DataTypes) {
     // }
   );
 
-  Wishlist.associate = function(models) {
-    Wishlist.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Wishlist.associate = function(models) {
+  //   Wishlist.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
   return Wishlist;
 };

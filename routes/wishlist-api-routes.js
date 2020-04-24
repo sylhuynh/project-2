@@ -15,8 +15,19 @@ module.exports = app => {
     });
   });
 
-  app.post("/api/wishlists", (req, res) => {
-    db.Wishlist.create(req.body).then(dbWishlist => {
+  app.post("/api/wishlist", (req, res) => {
+    if (!req.user) {
+      res.sendStatus(403);
+      return;
+    }
+
+    db.Wishlist.create({
+      destination: req.body.destination,
+      address: req.body.address,
+      wishlistStatus: req.body.wishlistStatus,
+      visitedStatus: req.body.visitedStatus,
+      UserId: req.user.id
+    }).then(dbWishlist => {
       res.json(dbWishlist);
     });
   });
