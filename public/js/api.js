@@ -24,6 +24,14 @@ $("#search").on("click", function(event) {
   findDestination(userInput);
 });
 
+$(".learn-more").on("click", function(event) {
+  // preventing default behavior
+  event.preventDefault();
+  // store the user's search value as a variable
+  var userInput = $(this).data("query");
+  findDestination(userInput);
+});
+
 function initMap() {
   var sydney = new google.maps.LatLng(-33.867, 151.195);
 
