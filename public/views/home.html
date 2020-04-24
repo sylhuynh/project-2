@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,17 +20,18 @@
 
   <!-- Google Maps API -->
 </head>
+
 <body>
   <div class="hero">
     <!-- Overlay Image -->
     <div class="uk-inline">
-      <img src="../images/wanderful-hero.jpg" alt="lake and forest" id = "hero-image">
+      <img src="../images/wanderful-hero.jpg" alt="lake and forest" id="hero-image">
       <div class="uk-overlay-default uk-position-center">
         <!-- Search Bar -->
         <form class="uk-search uk-search-default">
           <span uk-search-icon></span>
           <input class="uk-search-input" type="search" placeholder="Where to next?">
-          <button id="search" type="submit" href= "#modal-full" uk-toggle>Search</button>
+          <button id="search" type="submit" href="#modal-full" uk-toggle>Search</button>
         </form>
       </div>
     </div>
@@ -52,50 +54,54 @@
       <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-position-absolute" id="san-diego-info"
         style="left: 71%; top: 45%" hidden>
         <h4 class="uk-card-title">San Diego</h4>
-        <button class="uk-button uk-button-default learn-more" href= "#modal-full" uk-toggle data-query="san diego">LEARN MORE</button>
+        <button class="uk-button uk-button-default learn-more" href="#modal-full" uk-toggle data-query="san diego">LEARN
+          MORE</button>
         <!-- San Diego Wishlist/Visited-->
         <div class="uk-card-footer">
           <ul class="uk-iconnav">
             <a class="uk-button uk-button-small uk-link-reset">
-              <span class="uk-icon uk-margin-small-right" uk-icon="icon: location" id=""></span>
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: location"></span>
               Add visited
             </a>
             <a class="uk-button uk-button-small uk-link-reset">
-              <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart" id=""></span>
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart"></span>
               Add wishlist
             </a>
           </ul>
         </div>
       </div>
-    </div>
-  </div>
-<div id="modal-full" class="uk-modal-full" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-            <div id ="destination-image" class="uk-background-cover" style="background-image: url('images/photo.jpg');" uk-height-viewport></div>
-            <div class="uk-padding-large">
-                <h1 id="city"></h1>
-                <p></p>
-                <ul class="uk-iconnav">
-                  <a class="uk-button uk-button-small uk-link-reset add-visited">
-                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: location"></span>
-                    Add visited
-                  </a>
-                  <a class="uk-button uk-button-small uk-link-reset add-wishlist">
-                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart"></span>
-                    Add wishlist
-                  </a>
-                </ul>
-              </div>
+
+      <!-- Tokyo Marker -->
+      <a class="uk-position-absolute uk-transform-center" style="left: 43%; top: 43%" uk-marker id="tokyo-marker"
+        uk-toggle="target: #tokyo-info"></a>
+      <!-- Tokyo Card -->
+      <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-position-absolute" id="tokyo-info"
+        style="left: 44%; top: 43%" hidden>
+        <h4 class="uk-card-title">Tokyo</h4>
+        <button class="uk-button uk-button-default learn-more" href="#modal-full" uk-toggle data-query="tokyo">LEARN
+          MORE</button>
+        <!-- Tokyo Wishlist/Visited-->
+        <div class="uk-card-footer">
+          <ul class="uk-iconnav">
+            <a class="uk-button uk-button-small uk-link-reset">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: location"></span>
+              Add visited
+            </a>
+            <a class="uk-button uk-button-small uk-link-reset">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart"></span>
+              Add wishlist
+            </a>
+          </ul>
         </div>
-    </div>
-</div>
+      </div>
+
+  <!--Map Container-->
   <div class="uk-container">
     <div class="mapdiv">
       <div id="map"></div>
     </div>
   </div>
+
   <!-- Footer Nav -->
   <footer class="custom-footer">
     <nav class="uk-navbar-container">
@@ -104,8 +110,8 @@
           <li class="active"> <a href="/"> <span class="uk-icon uk-margin-small-right  uk-text-primary"
                 uk-icon="icon: search"></span> <span class="uk-text-primary">
                 Wander</span></a></li>
-          <li> <a href="wishlist"> <span class="uk-icon uk-margin-small-right"
-                uk-icon="icon: heart"></span>Wishlist</a></li>
+          <li> <a href="wishlist"> <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart"></span>Wishlist</a>
+          </li>
           <li> <a href="visited"> <span class="uk-icon uk-margin-small-right"
                 uk-icon="icon: location"></span>Visited</a></li>
         </ul>
@@ -115,4 +121,5 @@
   <script src="../js/api.js"></script>
 
 </body>
+
 </html>
