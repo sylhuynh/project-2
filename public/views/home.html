@@ -20,7 +20,7 @@
   <div class="hero">
     <!-- Overlay Image -->
     <div class="uk-inline">
-      <img src="../images/wanderful-hero.jpg" alt="lake and forest">
+      <img src="../images/wanderful-hero.jpg" alt="lake and forest" id = "hero-image">
       <div class="uk-overlay-default uk-position-center">
         <!-- Search Bar -->
         <form class="uk-search uk-search-default">
@@ -30,6 +30,8 @@
         </form>
       </div>
     </div>
+  </div>
+  <div class="photo">
   </div>
   <!-- Explore Pop Destinations Section -->
   <div class="uk-container uk-margin-medium uk-margin-large-bottom">
@@ -118,15 +120,19 @@
       const searchPlaceID = searchResults.place_id
       var request = {
         placeId: searchPlaceID,
-        fields: ['name', 'rating', 'formatted_phone_number', 'geometry']
+        fields: ['name', 'formatted_address', 'place_id', 'geometry', 'photos']
       };
       service = new google.maps.places.PlacesService(map);
-      service.getDetails(request, callback);
-      function callback(place, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-          createMarker(place);
+      service.getDetails(request, function (place, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          var photos = place.photos 
+          if (!photos) {
+              return;
+            }
+            var photoURL =  photos[0].getUrl({ maxWidth: 300, maxHeight: 300 });
+            // functionthatpassethesearguments(place, photoURL)
         }
-      }
+      });
     }
   </script>
 </body>
