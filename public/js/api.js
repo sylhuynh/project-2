@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 // Create the script tag, set the appropriate attributes
+
 var script = document.createElement("script");
 script.src =
   "https://maps.googleapis.com/maps/api/js?key=AIzaSyANGfz6tIVubimQkl95WE1Po7V1VvCBR-E&callback=initMap&libraries=places";
@@ -45,7 +46,6 @@ function findDestination(search) {
   });
 }
 function getSearchDetails(searchResults) {
-  console.log(searchResults);
   const searchPlaceID = searchResults.place_id;
   var request = {
     placeId: searchPlaceID,
@@ -60,8 +60,8 @@ function getSearchDetails(searchResults) {
         return;
       }
       var photoURL = photos[0].getUrl({ maxWidth: 300, maxHeight: 300 });
-      // pass(place, photoURL);
       console.log(place);
+      console.log(photoURL);
     }
   });
 }
