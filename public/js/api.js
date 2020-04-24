@@ -61,7 +61,7 @@ function getSearchDetails(searchResults) {
       }
       var photoURL = photos[0].getUrl({ maxWidth: 500, maxHeight: 500 });
       $("#destination-image").html($("<img>").attr("src", photoURL));
-      $("#city").text(place.formatted_address)
+      $("#city").text(place.formatted_address);
       console.log(place);
       console.log(photoURL);
     }
