@@ -16,7 +16,18 @@ module.exports = app => {
   });
 
   app.post("/api/visited", (req, res) => {
-    db.Visited.create(req.body).then(dbVisited => {
+    if (!req.user) {
+      res.sendStatus(403);
+      return;
+    }
+
+    db.Visited.create({
+      destination: req.body.destination,
+      address: req.body.address,
+      wishlistStatus: req.body.wishlistStatus,
+      visitedStatus: req.body.visitedStatus,
+      UserId: req.user.id
+    }).then(dbVisited => {
       res.json(dbVisited);
     });
   });

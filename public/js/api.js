@@ -76,4 +76,16 @@ function getSearchDetails(searchResults) {
   });
 }
 
-// $("#poster-image").append($("<img>").attr("src", response.Poster).attr("alt", "movie search poster image").addClass(".poster-button"));
+$(".add-visited").on("click", function(event) {
+  event.preventDefault();
+  const newVisited = {
+    destination: "san diego",
+    visitedStatus: true
+  };
+  console.log(newVisited);
+
+  $.post("/api/visited", newVisited).then(function(data) {
+    console.log(data);
+    alert("adding new city to visited");
+  });
+});

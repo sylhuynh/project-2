@@ -2,16 +2,16 @@ module.exports = function(sequelize, DataTypes) {
   const Visited = sequelize.define(
     "Visited",
     {
-      cityName: {
+      destination: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [1]
         }
       },
-      countryName: {
+      address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
           len: [1]
         }
