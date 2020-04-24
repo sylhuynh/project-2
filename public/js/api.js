@@ -12,6 +12,7 @@ window.initMap = function() {
 // Append the 'script' element to 'head'
 document.head.appendChild(script);
 
+// eslint-disable-next-line no-unused-vars
 function createMarker(place) {
   new google.maps.Marker({
     position: place.geometry.location,
