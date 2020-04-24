@@ -59,9 +59,13 @@ function getSearchDetails(searchResults) {
       if (!photos) {
         return;
       }
-      var photoURL = photos[0].getUrl({ maxWidth: 300, maxHeight: 300 });
+      var photoURL = photos[0].getUrl({ maxWidth: 500, maxHeight: 500 });
+      $("#destination-image").html($("<img>").attr("src", photoURL));
+      $("#city").text(place.formatted_address);
       console.log(place);
       console.log(photoURL);
     }
   });
 }
+
+// $("#poster-image").append($("<img>").attr("src", response.Poster).attr("alt", "movie search poster image").addClass(".poster-button"));

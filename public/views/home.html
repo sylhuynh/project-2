@@ -29,7 +29,8 @@
         <form class="uk-search uk-search-default">
           <span uk-search-icon></span>
           <input class="uk-search-input" type="search" placeholder="Where to next?">
-          <button id="search" type="submit">Search</button>
+          <a id= "destination" class="uk-button uk-button-default" href="#modal-full" uk-toggle></a>
+          <button id="search" type="submit" href= "#modal-full" uk-toggle>Search</button>
         </form>
       </div>
     </div>
@@ -69,6 +70,28 @@
       </div>
     </div>
   </div>
+<div id="modal-full" class="uk-modal-full" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+            <div id ="destination-image" class="uk-background-cover" style="background-image: url('images/photo.jpg');" uk-height-viewport></div>
+            <div class="uk-padding-large">
+                <h1 id="city"></h1>
+                <p></p>
+                <ul class="uk-iconnav">
+                  <a href="#" class="uk-button uk-button-small uk-link-reset">
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: location" id=""></span>
+                    Add visited
+                  </a>
+                  <a href="#" class="uk-button uk-button-small uk-link-reset">
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart" id=""></span>
+                    Add wishlist
+                  </a>
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>
   <div class="uk-container">
     <div class="mapdiv">
       <div id="map"></div>
@@ -91,5 +114,6 @@
     </nav>
   </footer>
   <script src="../js/api.js"></script>
+
 </body>
 </html>
