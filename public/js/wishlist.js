@@ -10,7 +10,7 @@ $(document).ready(function() {
   }
 
   function createWishlistCard(wishlistData) {
-    let WishlistCard = `<div class="uk-container uk-margin-medium uk-margin-large-bottom">
+    let WishlistCard = `<div class="uk-container uk-margin-medium uk-margin-large-bottom uk-margin-medium-top">
   <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
     <div class="uk-card-media-left uk-cover-container">
       <img src="../images/wanderful-hero.jpg" alt="" uk-cover>
