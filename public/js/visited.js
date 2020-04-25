@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("this better work");
   function getVisited() {
     $.get("/api/visited", function(data) {
       var rowsToAdd = [];
@@ -14,7 +13,7 @@ $(document).ready(function() {
     let visitedCard = `<div class="uk-container uk-margin-medium uk-margin-large-bottom">
 <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
   <div class="uk-card-media-left uk-cover-container">
-    <img src="${visitedData.url}" alt="" uk-cover>
+    <img src="../images/wanderful-hero.jpg" alt="" uk-cover>
     <canvas width="600" height="400"></canvas>
   </div>
   <div>
