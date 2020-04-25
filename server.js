@@ -25,6 +25,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Timeout
+app.use(timeout(15000));
+app.use(haltOnTimedout);
+function haltOnTimedout(req, res, next) {
+  if (!req.timedout) {
+    next();
+  }
+}
+
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
