@@ -67,7 +67,7 @@ function getSearchDetails(searchResults) {
       if (!photos) {
         return;
       }
-      var photoURL = photos[0].getUrl({ maxWidth: 500, maxHeight: 500 });
+      var photoURL = photos[0].getUrl({ maxWidth: 10000, maxHeight: 10000 });
       $("#destination-image").html($("<img>").attr("src", photoURL));
       $("#city").text(place.name);
       addVisited(place.name);
