@@ -98,6 +98,10 @@ function addWishlist(destination) {
       destination: destination,
       wishlistStatus: true
     };
+    // $(".add-wishlist").toggleClass("deepskyblue");
+    // $(".add-wishlist").attr("class", "deepskyblue");
+    $(".add-wishlist").attr("style", "color:deepskyblue");
+
     console.log(newWishlist);
 
     $.post("/api/wishlist", newWishlist).then(function(data) {
@@ -108,3 +112,53 @@ function addWishlist(destination) {
 }
 
 $("#search").hide();
+
+$("#san-diego-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#san-diego-visited").toggleClass("deepskyblue");
+});
+
+$("#san-diego-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#san-diego-wishlist").toggleClass("deepskyblue");
+});
+
+$("#tokyo-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#tokyo-visited").toggleClass("deepskyblue");
+});
+
+$("#tokyo-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#tokyo-wishlist").toggleClass("deepskyblue");
+});
+
+$("#dubai-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#dubai-visited").toggleClass("deepskyblue");
+});
+
+$("#dubai-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#dubai-wishlist").toggleClass("deepskyblue");
+});
+
+$("#paris-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#paris-visited").toggleClass("deepskyblue");
+});
+
+$("#paris-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#paris-wishlist").toggleClass("deepskyblue");
+});
+
+$("#toronto-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#toronto-visited").toggleClass("deepskyblue");
+});
+
+$("#toronto-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#toronto-wishlist").toggleClass("deepskyblue");
+});
