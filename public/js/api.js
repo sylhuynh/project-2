@@ -67,8 +67,12 @@ function getSearchDetails(searchResults) {
       if (!photos) {
         return;
       }
-      var photoURL = photos[0].getUrl({ maxWidth: 10000, maxHeight: 10000 });
-      $("#destination-image").html($("<img>").attr("src", photoURL));
+      var photoURL = photos[0].getUrl({ maxWidth: 500, maxHeight: 500 });
+      $("#destination-image").html(
+        $("<img>")
+          .attr("src", photoURL)
+          .addClass("uk-position-center-left uk-margin-large-left")
+      );
       $("#city").text(place.name);
       addVisited(place.name);
       addWishlist(place.name);
