@@ -17,11 +17,38 @@ document.head.appendChild(script);
 $("#search").on("click", function(event) {
   // preventing default behavior
   event.preventDefault();
+  if ($("#visited").text() === "ADDED TO VISITED") {
+    $("#visited").text("ADD VISITED");
+    $("#visit").toggleClass("deepskyblue");
+    console.log("#1");
+  } else {
+    $("#visited").text("ADD VISITED");
+    console.log("#2");
+  }
+  if ($("#wished").text() === "ADDED TO WISHLIST") {
+    $("#wished").text("ADD WISHLIST");
+    $("#wish").toggleClass("deepskyblue");
+  } else {
+    $("#wished").text("ADD WISHLIST");
+  }
+  // $("#wished").text("Add wishlist");
+
   // store the user's search value as a variable
   var userInput = $(".uk-search-input")
     .val()
     .trim();
   findDestination(userInput);
+});
+$("#visited").on("click", function(event) {
+  event.preventDefault();
+  $("#visit").toggleClass("deepskyblue");
+  $("#visited").text("ADDED TO VISITED");
+});
+
+$("#wished").on("click", function(event) {
+  event.preventDefault();
+  $("#wish").toggleClass("deepskyblue");
+  $("#wished").text("ADDED TO WISHLIST");
 });
 
 $(".learn-more").on("click", function(event) {
@@ -79,6 +106,7 @@ function getSearchDetails(searchResults) {
     }
   });
 }
+
 function addVisited(destination) {
   $(".add-visited").on("click", function(event) {
     event.preventDefault();
@@ -90,7 +118,6 @@ function addVisited(destination) {
 
     $.post("/api/visited", newVisited).then(function(data) {
       console.log(data);
-      alert("adding new city to visited");
     });
   });
 }
@@ -110,10 +137,28 @@ function addWishlist(destination) {
 
     $.post("/api/wishlist", newWishlist).then(function(data) {
       console.log(data);
-      alert("adding new city to wishlist");
     });
   });
 }
+
+// function deleteCard(id) {
+//   console.log("function being called");
+//   $(".add-delete").on("click", function(event) {
+//     event.preventDefault();
+//     console.log("here");
+//     // const newVisited = {
+//     //   destination: destination,
+//     //   visitedStatus: true
+//     // };
+//     // console.log(newVisited);
+
+//     // $.delete("/api/visited/:id").then(function() {
+//     //   console.log("is this working?");
+//     //   getVisited();
+//     // });
+//   });
+// }
+// deleteCard();
 
 $("#search").hide();
 
