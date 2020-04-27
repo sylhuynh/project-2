@@ -9,7 +9,9 @@ module.exports = app => {
     }
 
     db.Wishlist.findAll({
-      where: query
+      where: {
+        UserId: req.user.id
+      }
     }).then(dbWishlist => {
       res.json(dbWishlist);
     });

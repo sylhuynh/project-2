@@ -18,18 +18,18 @@ $("#search").on("click", function(event) {
   // preventing default behavior
   event.preventDefault();
   if ($("#visited").text() === "ADDED TO VISITED") {
-    $("#visited").text("Add visited");
+    $("#visited").text("ADD VISITED");
     $("#visit").toggleClass("deepskyblue");
     console.log("#1");
   } else {
-    $("#visited").text("Add visited");
+    $("#visited").text("ADD VISITED");
     console.log("#2");
   }
   if ($("#wished").text() === "ADDED TO WISHLIST") {
-    $("#wished").text("Add wishlist");
+    $("#wished").text("ADD WISHLIST");
     $("#wish").toggleClass("deepskyblue");
   } else {
-    $("#wished").text("Add wishlist");
+    $("#wished").text("ADD WISHLIST");
   }
   // $("#wished").text("Add wishlist");
 
