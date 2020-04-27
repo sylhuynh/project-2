@@ -3,7 +3,7 @@ const db = require("../models");
 // Routes
 module.exports = app => {
   app.get("/api/visited", (req, res) => {
-    console.log(req)
+    console.log(req);
     const query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
