@@ -23,12 +23,16 @@ $(document).ready(function() {
       <div class="uk-card-footer">
         <ul class="uk-iconnav">
           <a class="uk-button uk-button-small uk-link-reset add-visited">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: location" id="san-diego-visited"></span>
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: location"></span>
             Add visited
           </a>
           <a class="uk-button uk-button-small uk-link-reset add-wishlist">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart" id="san-diego-wishlist"></span>
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart"></span>
             Add wishlist
+          </a>
+          <a class="uk-button uk-button-small uk-link-reset add-delete">
+          <span class="uk-icon uk-margin-small-right" uk-icon="icon: trash"></span>
+          Delete
           </a>
         </ul>
       </div>

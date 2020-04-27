@@ -30,6 +30,10 @@ $(document).ready(function() {
               <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart" id="san-diego-wishlist"></span>
               Add wishlist
             </a>
+            <a class="uk-button uk-button-small uk-link-reset add-delete">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: trash"></span>
+            Delete
+            </a>
           </ul>
         </div>
       </div>

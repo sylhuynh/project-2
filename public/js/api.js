@@ -79,6 +79,7 @@ function getSearchDetails(searchResults) {
     }
   });
 }
+
 function addVisited(destination) {
   $(".add-visited").on("click", function(event) {
     event.preventDefault();
