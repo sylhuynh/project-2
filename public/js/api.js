@@ -23,7 +23,7 @@ $("#search").on("click", function(event) {
     console.log("#1");
   } else {
     $("#visited").text("Add visited");
-    console.log("#2")
+    console.log("#2");
   }
   if ($("#wished").text() === "ADDED TO WISHLIST") {
     $("#wished").text("Add wishlist");
@@ -117,7 +117,6 @@ function addVisited(destination) {
 
     $.post("/api/visited", newVisited).then(function(data) {
       console.log(data);
-      // alert("adding new city to visited");
     });
   });
 }
@@ -137,7 +136,6 @@ function addWishlist(destination) {
 
     $.post("/api/wishlist", newWishlist).then(function(data) {
       console.log(data);
-      // alert("adding new city to wishlist");
     });
   });
 }
