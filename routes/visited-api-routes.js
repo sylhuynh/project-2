@@ -3,13 +3,16 @@ const db = require("../models");
 // Routes
 module.exports = app => {
   app.get("/api/visited", (req, res) => {
+    console.log(req)
     const query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
     }
 
     db.Visited.findAll({
-      where: query
+      where: {
+        UserId: req.user.id
+      }
     }).then(dbVisited => {
       res.json(dbVisited);
     });
