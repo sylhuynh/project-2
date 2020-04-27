@@ -48,13 +48,3 @@ $(document).ready(function() {
 
   getVisited();
 });
-$("san-diego-visited").on("click"),
-function(event) {
-  event.preventDefault();
-  $("san-diego-visited").toggleClass("deepskyblue");
-};
-$("san-diego-wishlist").on("click"),
-function(event) {
-  event.preventDefault();
-  $("san-diego-wishlist").toggleClass("deepskyblue");
-};
