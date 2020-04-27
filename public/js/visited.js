@@ -22,11 +22,11 @@ $(document).ready(function() {
       <br>
       <div class="uk-card-footer">
         <ul class="uk-iconnav">
-          <a class="uk-button uk-button-small uk-link-reset add-visited">
+          <a id="visit" class="uk-button uk-button-small uk-link-reset add-visited">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: location" id="san-diego-visited"></span>
             Add visited
           </a>
-          <a class="uk-button uk-button-small uk-link-reset add-wishlist">
+          <a id="wish" class="uk-button uk-button-small uk-link-reset add-wishlist">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: heart" id="san-diego-wishlist"></span>
             Add wishlist
           </a>
@@ -48,11 +48,3 @@ $(document).ready(function() {
 
   getVisited();
 });
-$("san-diego-visited").on("click"), function (event){
-  event.preventDefault();
-  $("san-diego-visited").toggleClass("deepskyblue");
-}
-$("san-diego-wishlist").on("click"), function (event){
-  event.preventDefault();
-  $("san-diego-wishlist").toggleClass("deepskyblue");
-}

@@ -17,11 +17,38 @@ document.head.appendChild(script);
 $("#search").on("click", function(event) {
   // preventing default behavior
   event.preventDefault();
+  if ($("#visited").text() === "ADDED TO VISITED") {
+    $("#visited").text("Add visited");
+    $("#visit").toggleClass("deepskyblue");
+    console.log("#1");
+  } else {
+    $("#visited").text("Add visited");
+    console.log("#2")
+  }
+  if ($("#wished").text() === "ADDED TO WISHLIST") {
+    $("#wished").text("Add wishlist");
+    $("#wish").toggleClass("deepskyblue");
+  } else {
+    $("#wished").text("Add wishlist");
+  }
+  // $("#wished").text("Add wishlist");
+
   // store the user's search value as a variable
   var userInput = $(".uk-search-input")
     .val()
     .trim();
   findDestination(userInput);
+});
+$("#visited").on("click", function(event) {
+  event.preventDefault();
+  $("#visit").toggleClass("deepskyblue");
+  $("#visited").text("ADDED TO VISITED");
+});
+
+$("#wished").on("click", function(event) {
+  event.preventDefault();
+  $("#wish").toggleClass("deepskyblue");
+  $("#wished").text("ADDED TO WISHLIST");
 });
 
 $(".learn-more").on("click", function(event) {
@@ -90,7 +117,7 @@ function addVisited(destination) {
 
     $.post("/api/visited", newVisited).then(function(data) {
       console.log(data);
-      alert("adding new city to visited");
+      // alert("adding new city to visited");
     });
   });
 }
@@ -110,7 +137,7 @@ function addWishlist(destination) {
 
     $.post("/api/wishlist", newWishlist).then(function(data) {
       console.log(data);
-      alert("adding new city to wishlist");
+      // alert("adding new city to wishlist");
     });
   });
 }
