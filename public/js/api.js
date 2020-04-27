@@ -68,24 +68,101 @@ function getSearchDetails(searchResults) {
         return;
       }
       var photoURL = photos[0].getUrl({ maxWidth: 500, maxHeight: 500 });
-      $("#destination-image").html($("<img>").attr("src", photoURL));
-      $("#city").text(place.formatted_address);
-      console.log(place);
-      console.log(photoURL);
+      $("#destination-image").html(
+        $("<img>")
+          .attr("src", photoURL)
+          .addClass("uk-position-center-left uk-margin-large-left")
+      );
+      $("#city").text(place.name);
+      addVisited(place.name);
+      addWishlist(place.name);
     }
   });
 }
+function addVisited(destination) {
+  $(".add-visited").on("click", function(event) {
+    event.preventDefault();
+    const newVisited = {
+      destination: destination,
+      visitedStatus: true
+    };
+    console.log(newVisited);
 
-$(".add-visited").on("click", function(event) {
-  event.preventDefault();
-  const newVisited = {
-    destination: "san diego",
-    visitedStatus: true
-  };
-  console.log(newVisited);
-
-  $.post("/api/visited", newVisited).then(function(data) {
-    console.log(data);
-    alert("adding new city to visited");
+    $.post("/api/visited", newVisited).then(function(data) {
+      console.log(data);
+      alert("adding new city to visited");
+    });
   });
+}
+
+function addWishlist(destination) {
+  $(".add-wishlist").on("click", function(event) {
+    event.preventDefault();
+    const newWishlist = {
+      destination: destination,
+      wishlistStatus: true
+    };
+    // $(".add-wishlist").toggleClass("deepskyblue");
+    // $(".add-wishlist").attr("class", "deepskyblue");
+    $(".add-wishlist").attr("style", "color:deepskyblue");
+
+    console.log(newWishlist);
+
+    $.post("/api/wishlist", newWishlist).then(function(data) {
+      console.log(data);
+      alert("adding new city to wishlist");
+    });
+  });
+}
+
+$("#search").hide();
+
+$("#san-diego-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#san-diego-visited").toggleClass("deepskyblue");
+});
+
+$("#san-diego-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#san-diego-wishlist").toggleClass("deepskyblue");
+});
+
+$("#tokyo-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#tokyo-visited").toggleClass("deepskyblue");
+});
+
+$("#tokyo-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#tokyo-wishlist").toggleClass("deepskyblue");
+});
+
+$("#dubai-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#dubai-visited").toggleClass("deepskyblue");
+});
+
+$("#dubai-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#dubai-wishlist").toggleClass("deepskyblue");
+});
+
+$("#paris-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#paris-visited").toggleClass("deepskyblue");
+});
+
+$("#paris-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#paris-wishlist").toggleClass("deepskyblue");
+});
+
+$("#toronto-visited").on("click", function(event) {
+  event.preventDefault();
+  $("#toronto-visited").toggleClass("deepskyblue");
+});
+
+$("#toronto-wishlist").on("click", function(event) {
+  event.preventDefault();
+  $("#toronto-wishlist").toggleClass("deepskyblue");
 });
