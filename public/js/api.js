@@ -116,6 +116,25 @@ function addWishlist(destination) {
   });
 }
 
+// function deleteCard(id) {
+//   console.log("function being called");
+//   $(".add-delete").on("click", function(event) {
+//     event.preventDefault();
+//     console.log("here");
+//     // const newVisited = {
+//     //   destination: destination,
+//     //   visitedStatus: true
+//     // };
+//     // console.log(newVisited);
+
+//     // $.delete("/api/visited/:id").then(function() {
+//     //   console.log("is this working?");
+//     //   getVisited();
+//     // });
+//   });
+// }
+// deleteCard();
+
 $("#search").hide();
 
 $("#san-diego-visited").on("click", function(event) {
